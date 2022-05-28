@@ -33,7 +33,7 @@ const Home = () => {
             </Header>
             <Content style={{ paddingTop: 50, height: "100%" }}>
                 <Row gutter={[16, 100]}>
-                    <Col span={8}>
+                    <Col lg={8} sm={24} xs={24}>
                         <Title level={4}>Number of Players</Title>
                         <Select
                             defaultValue="3"
@@ -47,7 +47,7 @@ const Home = () => {
                             <Option value={6}>6</Option>
                         </Select>
                     </Col>
-                    <Col span={8}>
+                    <Col lg={8} sm={24} xs={24}>
                         <Title level={4}>Number of Spies</Title>
                         <Select
                             defaultValue="3"
@@ -61,7 +61,7 @@ const Home = () => {
                             </Option>
                         </Select>
                     </Col>
-                    <Col span={8}>
+                    <Col lg={8} sm={24} xs={24}>
                         <Title level={4}>Time Per Round</Title>
                         <Select
                             defaultValue="3 mins"
