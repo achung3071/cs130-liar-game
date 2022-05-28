@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { MainContext } from "../context/MainContext";
 
-const { Header, Footer, Content } = Layout;
+const { Header, Content } = Layout;
 const { Option } = Select;
 const { Title } = Typography;
 
@@ -77,7 +77,6 @@ const Home = () => {
                     </Col>
                 </Row>
             </Content>
-            <Footer></Footer>
         </Layout>
     );
 };

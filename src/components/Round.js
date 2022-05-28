@@ -5,7 +5,7 @@ import { MainContext } from "../context/MainContext";
 
 import Countdown from "react-countdown";
 
-const { Header, Footer, Content } = Layout;
+const { Header, Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 const Round = () => {
@@ -50,7 +50,6 @@ const Round = () => {
                     </Col>
                 </Row>
             </Content>
-            <Footer></Footer>
         </Layout>
     );
 };
