@@ -1,6 +1,6 @@
 import { Row, Col, Layout, Select, Typography, Button } from "antd";
 import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { MainContext } from "../context/MainContext";
 
 const { Header, Content } = Layout;
@@ -8,9 +8,14 @@ const { Option } = Select;
 const { Title } = Typography;
 
 const Home = () => {
-    const [numPlayers, setNumPlayers] = useState(3);
-    const [numSpies, setNumSpies] = useState(1);
-    const { minsPerRound, setMinsPerRound } = useContext(MainContext);
+    const {
+        numPlayers,
+        setNumPlayers,
+        numSpies,
+        setNumSpies,
+        minsPerRound,
+        setMinsPerRound,
+    } = useContext(MainContext);
 
     const handleNumPlayersChange = (value) => {
         setNumPlayers(value);
@@ -71,7 +76,7 @@ const Home = () => {
                         </Select>
                     </Col>
                     <Col span={24}>
-                        <Link to="/play-game">
+                        <Link to="/reveal-word">
                             <Button type="primary">Start Game!</Button>
                         </Link>
                     </Col>
