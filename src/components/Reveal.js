@@ -52,10 +52,19 @@ const Reveal = () => {
             <Content style={{ paddingTop: 50, height: "100%" }}>
                 <Row>
                     <Col span={24}>
+                        <Paragraph strong={true} style={{ fontSize: 20 }}>
+                            Player {currIdx + 1}, your word is:
+                        </Paragraph>
+                    </Col>
+                    <Col span={24}>
                         {showWord ? (
-                            <Paragraph>{currWord}</Paragraph>
+                            <Paragraph style={{ fontSize: 20 }}>
+                                {currWord}
+                            </Paragraph>
                         ) : (
-                            <Button onClick={revealWord}>Reveal Word</Button>
+                            <Button onClick={revealWord} type="primary">
+                                Reveal Word
+                            </Button>
                         )}
                     </Col>
                 </Row>
