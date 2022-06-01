@@ -76,7 +76,7 @@ const Home = () => {
                         </Select>
                     </Col>
                     <Col span={24}>
-                        <Link to="/reveal-word">
+                        <Link to="/categories">
                             <Button type="primary">Start Game!</Button>
                         </Link>
                     </Col>

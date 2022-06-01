@@ -1,5 +1,6 @@
 import { Row, Col, Layout, Typography, Card, Image } from "antd";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { MainContext } from "../context/MainContext";
 import animalImg from "../assets/images/animal.png";
 import countryImg from "../assets/images/country.png";
@@ -12,6 +13,14 @@ const { Header, Content } = Layout;
 const { Title } = Typography;
 
 const Categories = () => {
+    const { setCategory } = useContext(MainContext);
+    const navigate = useNavigate();
+
+    const handleCategoryClick = (category) => {
+        setCategory(category);
+        return navigate("/reveal-word");
+    };
+
     return (
         <Layout style={{ height: "100vh" }}>
             <Header style={{ paddingTop: 10 }}>
@@ -29,7 +38,11 @@ const Categories = () => {
                 </Row>
                 <Row gutter={[16, 16]}>
                     <Col lg={8} md={12} sm={12} xs={12}>
-                        <Card title="Animals" hoverable>
+                        <Card
+                            title="Animals"
+                            hoverable
+                            onClick={() => handleCategoryClick("animals")}
+                        >
                             <Image
                                 height={100}
                                 src={animalImg}
@@ -38,7 +51,11 @@ const Categories = () => {
                         </Card>
                     </Col>
                     <Col lg={8} md={12} sm={12} xs={12}>
-                        <Card title="Countries" hoverable>
+                        <Card
+                            title="Countries"
+                            hoverable
+                            onClick={() => handleCategoryClick("countries")}
+                        >
                             <Image
                                 height={100}
                                 src={countryImg}

@@ -2,35 +2,51 @@ import { Row, Col, Layout, Typography, Button } from "antd";
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { MainContext } from "../context/MainContext";
+import animalList from "../assets/data/animals.json";
+import countryList from "../assets/data/countries.json";
 
 const { Header, Content } = Layout;
 const { Title, Paragraph } = Typography;
 
+const categoryToList = {
+    animals: animalList,
+    countries: countryList,
+};
+
 const Reveal = () => {
-    const { numPlayers, numSpies } = useContext(MainContext);
+    const { category, numPlayers, numSpies } = useContext(MainContext);
+
     const [showWord, setShowWord] = useState(false);
-    const [currWord, setCurrWord] = useState("Dolphin");
+    const [currWord, setCurrWord] = useState("");
+    const [displayText, setDisplayText] = useState("");
     const [spyIndices, setSpyIndices] = useState([]);
     const [currIdx, setCurrIdx] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const newSpyIndices = [];
-        for (let i = 0; i < numSpies; i++) {
-            let idx = Math.floor(Math.random() * numPlayers);
-            while (newSpyIndices.includes(idx)) {
-                idx = Math.floor(Math.random() * numPlayers);
+        if (category) {
+            const wordList = categoryToList[category];
+            const newWord =
+                wordList[Math.floor(Math.random() * wordList.length)];
+            setCurrWord(newWord);
+            setDisplayText(newWord);
+            const newSpyIndices = [];
+            for (let i = 0; i < numSpies; i++) {
+                let idx = Math.floor(Math.random() * numPlayers);
+                while (newSpyIndices.includes(idx)) {
+                    idx = Math.floor(Math.random() * numPlayers);
+                }
+                newSpyIndices.push(idx);
             }
-            newSpyIndices.push(idx);
+            setSpyIndices(newSpyIndices);
         }
-        setSpyIndices(newSpyIndices);
-    }, [numPlayers, numSpies]);
+    }, [category, numPlayers, numSpies]);
 
     const revealWord = () => {
         if (spyIndices.includes(currIdx)) {
-            setCurrWord("You are a spy!");
+            setDisplayText("You are a spy!");
         } else {
-            setCurrWord("Dolphin");
+            setDisplayText(currWord);
         }
         setShowWord(true);
         setTimeout(() => {
@@ -59,7 +75,7 @@ const Reveal = () => {
                     <Col span={24}>
                         {showWord ? (
                             <Paragraph style={{ fontSize: 20 }}>
-                                {currWord}
+                                {displayText}
                             </Paragraph>
                         ) : (
                             <Button onClick={revealWord} type="primary">
