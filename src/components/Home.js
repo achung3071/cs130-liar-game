@@ -40,7 +40,7 @@ const Home = () => {
                 </Select>
             </Col>
             <Col lg={8} sm={24} xs={24}>
-                <Title level={4}>Number of Spies</Title>
+                <Title level={4}>Number of Liars</Title>
                 <Select
                     defaultValue="3"
                     style={{ width: 120 }}

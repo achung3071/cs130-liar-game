@@ -51,7 +51,7 @@ const Reveal = () => {
 
     const revealWord = () => {
         if (spyIndices.includes(currIdx)) {
-            setDisplayText("You are a spy!");
+            setDisplayText("You are a liar!");
         } else {
             setDisplayText(currWord);
         }
