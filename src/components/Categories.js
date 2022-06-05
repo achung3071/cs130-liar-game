@@ -79,7 +79,7 @@ const Categories = () => {
                     <Card
                         title="Food"
                         hoverable
-                        onClick={() => handleCategoryClick("jobs")}
+                        onClick={() => handleCategoryClick("foods")}
                     >
                         <Image height={100} src={foodImg} preview={false} />
                     </Card>

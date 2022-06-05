@@ -6,6 +6,8 @@ import animalList from "../assets/data/animals.json";
 import countryList from "../assets/data/countries.json";
 import jobsList from "../assets/data/jobs.json";
 import movieList from "../assets/data/movies.json";
+import sportsList from "../assets/data/sports.json";
+import foodsList from "../assets/data/foods.json";
 
 const { Paragraph } = Typography;
 
@@ -14,6 +16,8 @@ const categoryToList = {
     countries: countryList,
     jobs: jobsList,
     movies: movieList,
+    sports: sportsList,
+    foods: foodsList,
 };
 
 const Reveal = () => {
