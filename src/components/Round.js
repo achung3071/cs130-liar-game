@@ -36,7 +36,11 @@ const Round = () => {
                 />
             </Col>
             <Col span={24}>
-                <Link to="/">
+                <Link to="/categories" style={{ marginRight: 5 }}>
+                    <Button size="large">Choose another category</Button>
+                </Link>
+
+                <Link to="/" style={{ marginLeft: 5 }}>
                     <Button type="primary" size="large">
                         Back to Main Page
                     </Button>
