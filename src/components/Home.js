@@ -61,15 +61,16 @@ const Home = () => {
                     value={minsPerRound}
                     onChange={setMinsPerRound}
                 >
+                    <Option value={1}>1 mins</Option>
+                    <Option value={2}>2 mins</Option>
                     <Option value={3}>3 mins</Option>
-                    <Option value={4}>4 mins</Option>
-                    <Option value={5}>5 mins</Option>
-                    <Option value={6}>6 mins</Option>
                 </Select>
             </Col>
             <Col span={24}>
                 <Link to="/categories">
-                    <Button type="primary">Start Game!</Button>
+                    <Button type="primary" size="large">
+                        Start Game!
+                    </Button>
                 </Link>
             </Col>
         </Row>

@@ -78,7 +78,7 @@ const Reveal = () => {
                         {displayText}
                     </Paragraph>
                 ) : (
-                    <Button onClick={revealWord} type="primary">
+                    <Button onClick={revealWord} type="primary" size="large">
                         Reveal Word
                     </Button>
                 )}

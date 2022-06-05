@@ -37,7 +37,9 @@ const Round = () => {
             </Col>
             <Col span={24}>
                 <Link to="/">
-                    <Button type="primary">Back to Main Page</Button>
+                    <Button type="primary" size="large">
+                        Back to Main Page
+                    </Button>
                 </Link>
             </Col>
         </Row>
