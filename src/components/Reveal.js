@@ -1,16 +1,19 @@
-import { Row, Col, Layout, Typography, Button } from "antd";
+import { Row, Col, Typography, Button } from "antd";
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { MainContext } from "../context/MainContext";
 import animalList from "../assets/data/animals.json";
 import countryList from "../assets/data/countries.json";
+import jobsList from "../assets/data/jobs.json";
+import movieList from "../assets/data/movies.json";
 
-const { Header, Content } = Layout;
-const { Title, Paragraph } = Typography;
+const { Paragraph } = Typography;
 
 const categoryToList = {
     animals: animalList,
     countries: countryList,
+    jobs: jobsList,
+    movies: movieList,
 };
 
 const Reveal = () => {
@@ -59,33 +62,24 @@ const Reveal = () => {
     };
 
     return (
-        <Layout style={{ height: "100vh" }}>
-            <Header style={{ paddingTop: 10 }}>
-                <Title level={2} style={{ color: "white" }}>
-                    Liar Game
-                </Title>
-            </Header>
-            <Content style={{ paddingTop: 50, height: "100%" }}>
-                <Row>
-                    <Col span={24}>
-                        <Paragraph strong={true} style={{ fontSize: 20 }}>
-                            Player {currIdx + 1}, your word is:
-                        </Paragraph>
-                    </Col>
-                    <Col span={24}>
-                        {showWord ? (
-                            <Paragraph style={{ fontSize: 20 }}>
-                                {displayText}
-                            </Paragraph>
-                        ) : (
-                            <Button onClick={revealWord} type="primary">
-                                Reveal Word
-                            </Button>
-                        )}
-                    </Col>
-                </Row>
-            </Content>
-        </Layout>
+        <Row>
+            <Col span={24}>
+                <Paragraph strong={true} style={{ fontSize: 20 }}>
+                    Player {currIdx + 1}, your word is:
+                </Paragraph>
+            </Col>
+            <Col span={24}>
+                {showWord ? (
+                    <Paragraph style={{ fontSize: 20 }}>
+                        {displayText}
+                    </Paragraph>
+                ) : (
+                    <Button onClick={revealWord} type="primary">
+                        Reveal Word
+                    </Button>
+                )}
+            </Col>
+        </Row>
     );
 };
 
